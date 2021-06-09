@@ -21,6 +21,10 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 public class LaundryKiloan extends javax.swing.JFrame {
@@ -938,6 +942,15 @@ public class LaundryKiloan extends javax.swing.JFrame {
                 statement2.setInt(7, id_jc);
                 statement2.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Berhasil Menambahkan!", "Success", JOptionPane.PLAIN_MESSAGE);
+                //jasper
+                try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportNota1.jasper"), null, Koneksi.getConnection());
+                        JasperViewer.viewReport(jp, false);
+                        
+                    } catch(JRException e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                }
+                
                 tampil();
                 reset();
             } catch (SQLException ex) {

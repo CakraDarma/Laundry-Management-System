@@ -16,6 +16,10 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -1253,6 +1257,13 @@ Connection conn = Koneksi.getConnection();
                 
                 
                 JOptionPane.showMessageDialog(this, "Berhasil Menambahkan!", "Success", JOptionPane.PLAIN_MESSAGE);
+                try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportNota2.jasper"), null, Koneksi.getConnection());
+                        JasperViewer.viewReport(jp, false);
+                    } catch(JRException e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                }
+                
                 tampil();
                 reset();
             } catch (SQLException ex) {

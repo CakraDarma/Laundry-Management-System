@@ -8,9 +8,6 @@ import javax.swing.JOptionPane;
 
 public class UpdateAdmin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UpdateAdmin
-     */
     Connection conn = Koneksi.getConnection();
     public UpdateAdmin() {
         initComponents();
