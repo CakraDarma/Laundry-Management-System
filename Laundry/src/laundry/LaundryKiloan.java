@@ -944,7 +944,7 @@ public class LaundryKiloan extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Berhasil Menambahkan!", "Success", JOptionPane.PLAIN_MESSAGE);
                 //jasper
                 try {
-                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportNota1.jasper"), null, Koneksi.getConnection());
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("kilo.jasper"), null, Koneksi.getConnection());
                         JasperViewer.viewReport(jp, false);
                         
                     } catch(JRException e) {
