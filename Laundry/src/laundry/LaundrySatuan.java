@@ -1258,7 +1258,7 @@ Connection conn = Koneksi.getConnection();
                 
                 JOptionPane.showMessageDialog(this, "Berhasil Menambahkan!", "Success", JOptionPane.PLAIN_MESSAGE);
                 try {
-                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportNota2.jasper"), null, Koneksi.getConnection());
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("satuan.jasper"), null, Koneksi.getConnection());
                         JasperViewer.viewReport(jp, false);
                     } catch(JRException e) {
                         JOptionPane.showMessageDialog(rootPane, e);
